@@ -32,8 +32,6 @@ const compare = (entered, userPassword, callback) =>
     callback(result);
   });
 
-
-  
 // Export the functions for external use
 module.exports = {
   hashPassword, // Expose the hashPassword function
