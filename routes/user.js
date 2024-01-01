@@ -1,9 +1,12 @@
-const express = require('express')
-const router = express.Router()
-const userAuth = require('../services/authService')
-const {validateUserData} = require('../middleware/userMiddleware')
+const express = require('express'); // Import the Express framework
+const router = express.Router(); // Create an instance of Express Router
+const userAuth = require('../services/authService'); // Import userAuth from authService
+const { validateUserData } = require('../middleware/userMiddleware'); // Import validateUserData middleware from userMiddleware
 
 
-router.post('/create',validateUserData, userAuth.createUser )
+// Define a POST route '/create' - The route is responsible for creating a user
+// It utilizes validateUserData middleware and userAuth.createUser function
+router.post('/create', validateUserData, userAuth.createUser);
 
-module.exports.userRouter = router
+// Export the router instance to be used in other files
+module.exports.userRouter = router;
