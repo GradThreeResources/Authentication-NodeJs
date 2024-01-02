@@ -7,7 +7,6 @@ This project serves as a Tech E commerce Application
 ## Table of Contents
 - [Project Structure](#project-structure)
 - [Setup and Installation](#setup-and-installation)
-- [Usage](#usage)
 - [Services and Middleware](#services-and-middleware)
 - [Diagrams](#diagrams)
 
@@ -38,18 +37,19 @@ To set up the project locally:
 
 ```bash
 git clone https://github.com/MohamedDiaaEldin/Ecommerce-tech
+
 npm install
-# Configure environment variables as needed
+
+
+mkdir database 
+
+## requires postgres docker image  
+npm run start-db
+
+# run the server
 npm start
 ```
 
-## Usage
-After setting up the project, utilize it for [describe common tasks or functionalities].
-
-```javascript
-// Example code snippets demonstrating usage
-// ...
-```
 
 ## Services and Middleware
 - **Routes (`routes/`)**: Handles routing-related logic, including `user.js` for user-related routes.
