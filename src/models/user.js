@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize"); // Import Sequelize library
-const { sequelize } = require("../database"); // Import the sequelize instance from the database configuration
+const { sequelize } = require("../database-config"); // Import the sequelize instance from the database configuration
 
 // Define the 'User' model using Sequelize
 const User = sequelize.define(

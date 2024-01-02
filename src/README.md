@@ -14,22 +14,24 @@ This project serves as a Tech E commerce Application
 The project's directory structure is organized as follows:
 
 ```
+
 project-root/
-├── routes/
-│   └── user.js
-├── middleware/
-│   └── user.js
-├── diagrams/
-│   └── service_architecture.png
-├── models/
-│   └── user.js
-├── scripts/
-│   └── start-database.sh
-├── services/
-│   ├── authentication_service.js
-│   └── emailService.js
-└── utils/
-    └── passwordUtils.js
+├── src/
+│   ├── routes/
+│   │   └── user.js
+│   ├── middleware/
+│   │   └── user.js
+│   ├── models/
+│   │   └── user.js
+│   ├── scripts/
+│   │   └── start-database.sh
+│   ├── services/
+│   │   ├── authentication_service.js
+│   │   └── emailService.js
+│   └── utils/
+│       └── passwordUtils.js
+└── diagrams/
+    └── service_architecture.png
 ```
 
 ## Setup and Installation
