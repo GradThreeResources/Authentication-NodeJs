@@ -33,7 +33,7 @@ const sendMail = (to, subject, text, html) => {
 // Returns a promise 
 const sendOTPMail = (to) => {
 
-    // TODO: Implement OTP generator 
+  // TODO: Implement OTP generator 
   const generatedOTP = 54564; // Replace with the generated OTP
 
   // Send the OTP email and return the result

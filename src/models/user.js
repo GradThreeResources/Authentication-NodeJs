@@ -15,6 +15,7 @@ const User = sequelize.define(
     password: Sequelize.STRING,
     mobile: Sequelize.STRING,
     email: Sequelize.STRING,
+    OtpSecret: {type: Sequelize.STRING, defaultValue:'NONE'},
   },
   {
     timestamps: false, // Disable automatic createdAt and updatedAt columns
