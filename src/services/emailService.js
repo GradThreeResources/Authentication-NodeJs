@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Function to send an email
-// Returns a promise 
+// Returns a promise
 const sendMail = (to, subject, text, html) => {
   // Email message options
   const mailOptions = {
@@ -24,26 +24,21 @@ const sendMail = (to, subject, text, html) => {
     text: text || "", // Plain text body
     html: html || "", // HTML body
   };
-
   // Send the email using the transporter and return the result
   return transporter.sendMail(mailOptions);
 };
 
 // Function to send OTP email
-// Returns a promise 
-const sendOTPMail = (to) => {
-
-  // TODO: Implement OTP generator 
-  const generatedOTP = 54564; // Replace with the generated OTP
-
-  // Send the OTP email and return the result
-  return sendMail(
+// Returns a promise
+const sendOTPMail = async (to, otp) => {
+  await sendMail(
     to,
     `Your One-Time Password (OTP) for Account Verification`,
     ``,
-    `<p>Hello,<br>Your OTP for verification is: <strong>${generatedOTP}</strong>.</p>`
+    `<p>Hello,<br>Your OTP for verification is: <strong>${otp}</strong>.</p>`
   );
 };
+
 
 // Export the function to be used in other modules
 module.exports = {

@@ -15,7 +15,6 @@ const User = sequelize.define(
     password: Sequelize.STRING,
     mobile: Sequelize.STRING,
     email: Sequelize.STRING,
-    OtpSecret: {type: Sequelize.STRING, defaultValue:'NONE'},
   },
   {
     timestamps: false, // Disable automatic createdAt and updatedAt columns
@@ -23,23 +22,25 @@ const User = sequelize.define(
 );
 
 // Create a new user in the database
-module.exports.createUser = async (name, email, password, mobile) => {
+const createUser = async (name, email, password, mobile, transaction) => {
   try {
-    // Ensure the 'User' model is synchronized with the database (creates the table if it doesn't exist)
-    await User.sync();
+    
 
     // Create a new user using the 'create()' method of the 'User' model
-    const newUser = await User.create({
+    await User.create({
       name: name,
       email: email,
       password: password,
       mobile: mobile,
-    });
-
-    // Log the details of the newly created user
-    console.log("New user created:", newUser.toJSON());
-  } catch (error) {
+    },{transaction:transaction});
+  } catch (error) {    
     // Handle any errors that occur during user creation
     console.error("Error creating user:", error);
   }
 };
+
+
+module.exports = {
+  createUser, 
+  User
+}

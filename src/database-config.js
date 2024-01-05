@@ -14,6 +14,7 @@ module.exports.syncModels = async ()=> {
       // { force: true } will drop existing tables and recreate them; use with caution in production
   
       console.log('All models were synchronized successfully.');
+
     } catch (error) {
       console.error('Error synchronizing models:', error);
     }
