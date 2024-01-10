@@ -1,6 +1,6 @@
 const speakeasy = require("speakeasy");
 
-const STEPS = 120; // Almost 60 seconds
+const STEPS = 1200000; // 120 Almost 60 seconds
 
 // Function to generate a secret key for a user
 const generateSecret = () => {
@@ -17,7 +17,7 @@ const generateTOTP = (secret) => {
 };
 
 // Function to verify a TOTP code entered by the user
-const verifyTOTP = (secret, token) => {
+const isValidOTP = (secret, token) => {
   return speakeasy.totp.verify({
     secret: secret,
     encoding: "base32",
@@ -29,7 +29,7 @@ const verifyTOTP = (secret, token) => {
 
 
 module.exports = {
-  verifyTOTP,
+  isValidOTP,
   generateTOTP,
   generateSecret,
 };
