@@ -18,4 +18,4 @@ app.use(userRouter)
 
 
 syncModels()
-app.listen(3000, 'localhost',()=>console.log('Server is listing')) ;
+app.listen(1000, 'localhost',()=>console.log('Server is listing')) ;
