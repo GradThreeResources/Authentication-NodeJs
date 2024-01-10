@@ -29,9 +29,30 @@ project-root/
 │   │   ├── authentication_service.js
 │   │   └── emailService.js
 │   └── utils/
-│       └── passwordUtils.js
+│       ├── jwtUtil.js
+│       ├── otpUtils.js
+│       ├── passwordUtils.js
+│       └── responseHandler.js
+├── docs/
+│   ├── middleware/
+│   │   └── userAuthenticationMiddleware.md
+│   ├── models/
+│   │   └── user.md
+│   ├── routes/
+│   │   └── user.md
+│   ├── services/
+│   │   ├── authService-doc.md
+│   │   └── emailService.md
+│   ├── utils/
+│   │   ├── jwtUtil.md
+│   │   ├── otpUtil.md
+│   │   ├── passwordUtil.md
+│   │   └── responseHandlerUtil.md
+│   └── diagrams/
+│       └── service_architecture.png
 └── diagrams/
     └── service_architecture.png
+
 ```
 
 ## Setup and Installation
