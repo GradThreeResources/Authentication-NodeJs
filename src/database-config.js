@@ -7,7 +7,7 @@ require("dotenv").config();
 //     dialect: 'postgres',
 // });
 
-// const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL;
 
 // Initialize Sequelize with the database URL
 const sequelize = new Sequelize(databaseUrl, {
