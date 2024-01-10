@@ -14,9 +14,7 @@ const sequelize = new Sequelize(databaseUrl, {
   dialect: "postgres", // Specify the dialect (postgres in this case)
   // Other options if required: logging: false, ssl: true (for SSL connections), etc.
   dialectOptions: {
-    ssl: {
-      require: true,
-    },
+    
   },
 });
 
