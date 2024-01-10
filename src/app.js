@@ -10,7 +10,9 @@ app.use(bodyParser.json());
 
 // for development
 app.use(morgan('dev'))
-
+app.use('/', (req, res)=>{
+    res.send('<h1>Testing...</h1>')
+})
 // User related routes
 app.use(userRouter)
 
