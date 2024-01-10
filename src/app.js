@@ -18,4 +18,4 @@ app.use(userRouter)
 
 
 syncModels()
-app.listen(()=>console.log('Server is listing')) ;
+app.listen(process.env.PORT || 1000,()=>console.log('Server is listing')) ;

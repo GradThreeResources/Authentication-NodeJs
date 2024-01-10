@@ -7,15 +7,11 @@ require("dotenv").config();
 //     dialect: 'postgres',
 // });
 
-const databaseUrl = process.env.DATABASE_URL;
+// const databaseUrl = process.env.DATABASE_URL;
 
 // Initialize Sequelize with the database URL
 const sequelize = new Sequelize(databaseUrl, {
-  dialect: "postgres", // Specify the dialect (postgres in this case)
-  // Other options if required: logging: false, ssl: true (for SSL connections), etc.
-  dialectOptions: {
-    
-  },
+  dialect: "postgres", // Specify the dialect (postgres in this case)    
 });
 
 module.exports.syncModels = async () => {
