@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "107d70fb-074b-4649-ac33-ac453afc8020",
+		"name": "Tech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15251149"
+	},
+	"item": [
+		{
+			"name": "Sign UP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Mohamed Diaa\",\n    \"password\":\"Mohamed12..\",\n    \"mobile\":\"01215512\",\n    \"email\":\"mdiaan404@gmail.com\",\n    \"otp\":\"157636\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tech-app-0mms.onrender.com/register",
+					"protocol": "https",
+					"host": [
+						"tech-app-0mms",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"mdiaan404@gmail.com\",\n    \"password\":\"Mohamed12..\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tech-app-0mms.onrender.com/login",
+					"protocol": "https",
+					"host": [
+						"tech-app-0mms",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send OTP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"mdiaan404@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tech-app-0mms.onrender.com/send_otp",
+					"protocol": "https",
+					"host": [
+						"tech-app-0mms",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"send_otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1kaWFhbjQwNEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ4NzM2ODksImV4cCI6MTcyMzAxNzY4OX0.rPg_fIXMxxAa6noWJ7WCz09vDlhN2Nu8j-xRNh0v2tM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tech-app-0mms.onrender.com/data",
+					"protocol": "https",
+					"host": [
+						"tech-app-0mms",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"data"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1kaWFhbjQwNEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ4NTI3MjEsImV4cCI6MTcyMjk5NjcyMX0.Hzl7jcUfFnVhy9j5g37Yy_2J6j1EPEurkNya3mrHEyk\"\n",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
