@@ -5,6 +5,7 @@ const responseUtil = require('../../utils/responseHandler');
 describe('Response Util', () => {
   describe('sendSuccessResponse function', () => {
     it('should send a success response', () => {
+      // mochRes simulates res.status().json()
       const mockRes = {
         status: (code) => ({ json: (data) => ({ code, data }) }),
       };
