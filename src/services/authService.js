@@ -64,9 +64,9 @@ module.exports.sendOTP = async (req, res) => {
       const secret = generateSecret();
       const generatedOTP = generateTOTP(secret);
       await createUserOTP(email, secret, transaction);
-      await transaction.commit();
-      await sendOTPMail(email, generatedOTP);
+      sendOTPMail(email, generatedOTP);
 
+      await transaction.commit();
       return sendSuccessResponse(res); // Message : Success
     }
   } catch (error) {

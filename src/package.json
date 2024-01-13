@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start-db": "./scripts/start_database.sh",
+    "start-test-db": "./scripts/start_test_database.sh",
     "start": "node app.js",
     "start-dev": "nodemon app.js",
     "test": "npx mocha test/**/*.test.js"
@@ -19,7 +20,6 @@
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
-    "esm": "^3.2.25",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mocha": "^10.2.0",
