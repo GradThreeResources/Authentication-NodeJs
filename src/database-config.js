@@ -1,8 +1,9 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
+const DB_NAME = process.env.ENV === 'TEST' ? process.env.TEST_DB_NAME : process.env.DB_NAME ; 
 // dev
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, 'postgres', {
+const sequelize = new Sequelize(DB_NAME, process.env.DB_USERNAME, 'postgres', {
     host: process.env.DB_HOST,
     dialect: 'postgres',
     logging:false

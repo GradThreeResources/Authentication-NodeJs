@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start-db": "./scripts/start_database.sh",
+    "start-test-db": "./scripts/start_test_database.sh",
     "start": "node app.js",
     "start-dev": "nodemon app.js",
     "test": "npx mocha test/**/*.test.js"
