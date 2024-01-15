@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "mdiaa",
+    "password": "postgres",
+    "database": "dubi",
+    "host": "192.168.1.100",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "mdiaa",
+    "password": "postgres",
+    "database": "dubi-test",
+    "host": "192.168.1.100",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

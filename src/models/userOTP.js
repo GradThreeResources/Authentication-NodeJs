@@ -2,23 +2,20 @@ const Sequelize = require("sequelize"); // Import Sequelize library
 const { sequelize } = require("../database-config"); // Import the sequelize instance from the database configuration
 
 // Define the 'User' model using Sequelize
-const UserOTP = sequelize.define(
-  "user_secret",
-  {   
-    email: {type:Sequelize.STRING, primaryKey:true},
-    OtpSecret: {type: Sequelize.STRING, defaultValue:'NONE'},
-  },
-  {
-    timestamps: false, // Disable automatic createdAt and updatedAt columns
-  }
-);
+class UserSecret extends Sequelize.Model{}
+
+UserSecret.init({}, {
+  sequelize,
+  modelName:"user_secrets"
+  
+})
 
 // Create a new user in the database
 const createUserOTP = async (email, OtpSecret, transaction) => {
 
   try {
     // Create or Replace a new userOTP using the 'upset()' method of the 'user_secret' model
-    await UserOTP.upsert({
+    await UserSecret.upsert({
       email:email, 
       OtpSecret:OtpSecret
     },{transaction:transaction}) ;
@@ -34,6 +31,6 @@ const createUserOTP = async (email, OtpSecret, transaction) => {
 
 
 module.exports ={
-  UserOTP, 
+  UserSecret, 
   createUserOTP
 }

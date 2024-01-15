@@ -2,7 +2,7 @@
 const { sequelize } = require("../database-config");
 const { createUser } = require("../models/user"); // Import createUser function from user model
 const { hashPassword, isValidPassword } = require("../utils/passwordUtils"); // Import hashPassword function from passwordUtils
-const { createUserOTP, UserOTP } = require("../models/userOTP");
+const { createUserOTP, UserSecret } = require("../models/userOTP");
 const { sendOTPMail } = require("./emailService");
 const { User } = require("../models/user");
 const { sign } = require("../utils/jwtUtil");
@@ -87,7 +87,7 @@ exports.register = async (req, res) => {
   try {
     const hashedPassword = await hashPassword(password); // Hash the provided password
 
-    const userOtp = await UserOTP.findOne({
+    const userOtp = await UserSecret.findOne({
       where: {
         email: email,
       },
