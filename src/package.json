@@ -10,9 +10,15 @@
   "scripts": {
     "start-db": "./scripts/start_database.sh",
     "start-test-db": "./scripts/start_test_database.sh",
-    "start": "node app.js",
-    "start-dev": "nodemon app.js",
-    "test": "npx mocha test/**/*.test.js"
+    "start:production": "export NODE_ENV=production ; node app.js",
+    "start": " export NODE_ENV=development ; nodemon app.js",
+    "test": "npx mocha test/**/*.test.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:production": " export NODE_ENV=production  ; npx sequelize-cli db:migrate",
+    "undo:production": " export NODE_ENV=production  ; npx sequelize-cli db:migrate:undo:all",
+    "undo": "npx sequelize-cli db:migrate:undo:all",
+    "create:db": "npx sequelize-cli db:create",
+    "drop:db": "npx sequelize-cli db:drop"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +37,7 @@
   },
   "devDependencies": {
     "morgan": "^1.10.0",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "sequelize-cli": "^6.6.2"
   }
 }
