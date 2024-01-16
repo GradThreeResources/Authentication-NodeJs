@@ -1,6 +1,5 @@
 const express = require('express')
 const morgan = require('morgan')
-const {syncModels} = require('./database-config')
 const {userRouter} = require('./routes/user')
 const bodyParser = require('body-parser')
 
@@ -9,7 +8,7 @@ const app = express()
 app.use(bodyParser.json());
 
 // for development
-app.use(morgan('tiny'))
+app.use(morgan('combined'))
 // User related routes
 app.use(userRouter)
 
@@ -23,6 +22,5 @@ app.use('/', (req, res)=>{
 
 // for testing 
 module.exports = app
-// syncModels()
 
 app.listen(process.env.PORT || 1000,()=>console.log('Server is listing')) ;
