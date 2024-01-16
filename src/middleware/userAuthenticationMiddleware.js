@@ -18,6 +18,7 @@ module.exports.validateOTPRequest = (req, res, next) => {
 // Middleware to validate user data for sign-up
 module.exports.validateUserData = (req, res, next) => {
   const { name, email, mobile, password, otp } = req.body;
+  console.log(req.body)
   if (    
     !name ||
     !email ||

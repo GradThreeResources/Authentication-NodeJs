@@ -12,6 +12,8 @@ UserSecret.init(
   {
     sequelize,
     modelName: "user_secrets",
+    timestamps: false, // Disable automatic createdAt and updatedAt columns
+
     
   }
 );
