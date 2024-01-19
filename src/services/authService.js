@@ -45,7 +45,7 @@ module.exports.login = async (req, res) => {
     }
   }
   catch(error){
-    console.log('error while logging Error: ', error)
+    console.log('Error while logging Error: ', error)
   }
 };
 
@@ -87,7 +87,7 @@ module.exports.sendOTP = async (req, res) => {
 };
 
 // Endpoint for user registration (sign-up)
-// Expect{ Email, password }
+// Expect{ Email, password , otp, mobile , name}
 exports.register = async (req, res) => {
   let transaction = null ;
   const { email, password, otp, mobile, name } = req.body; // Extract data from request body
@@ -108,7 +108,7 @@ exports.register = async (req, res) => {
       attributes: ["email"],
     });
 
-    if (!userOtp) {
+    if (!userOtp) { 
       // If OTP not found, send bad request response
       return sendBadRequestResponse(res);
     }
