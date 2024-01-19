@@ -20,35 +20,43 @@ const {
 } = require("../utils/otpUtils");
 
 // Expect{ Email, password}
+// Endpoint for user login
 module.exports.login = async (req, res) => {
-  // Endpoint for user login
-  const { email, password } = req.body; // Extract email and password from request body
-  const user = await User.findOne({
-    where: {
-      email: email,
-    },
-    attributes: ["email", "password"],
-  });
-  if (!user) {
-    // If user not found, send unauthorized response
-    return sendUnAuthorized(res);
-  }
+  try{
 
-  if (await isValidPassword(password, user.password)) {
-    // If password is valid, create JWT token and send success response
-    const token = sign({ email: user.email, id: user.id });
-    return sendSuccessResponse(res, token); // Message: Success
-  } else {
-    // If password is invalid, send unauthorized response
-    return sendUnAuthorized(res); // Message: Unauthorized
+    
+    const { email, password } = req.body; // Extract email and password from request body
+    const user = await User.findOne({
+      where: {
+        email: email,
+      },
+      attributes: ["email", "password"],
+    });
+    if (!user) {
+      // If user not found, send unauthorized response
+      return sendUnAuthorized(res);
+    }
+  
+    if (await isValidPassword(password, user.password)) {
+      // If password is valid, create JWT token and send success response
+      const token = sign({ email: user.email, id: user.id });
+      return sendSuccessResponse(res, token); // Message: Success
+    } else {
+      // If password is invalid, send unauthorized response
+      return sendUnAuthorized(res); // Message: Unauthorized
+    }
+  }
+  catch(error){
+    console.log('error while logging Error: ', error)
   }
 };
 
 // Expect{ Email}
 module.exports.sendOTP = async (req, res) => {
   // Endpoint to send OTP to a given email
-  const transaction = await sequelize.transaction();
+  let transaction = null
   try {
+    await sequelize.transaction();
     const { email } = req.body; // Extract email from request body
     const user = await User.findOne({
       where: {
@@ -69,7 +77,9 @@ module.exports.sendOTP = async (req, res) => {
       return sendSuccessResponse(res); // Message : Success
     }
   } catch (error) {
-    await transaction.rollback();
+    if (transaction){
+      await transaction.rollback();
+    }
     console.log(
       "Error while sending email or interacting with database Error:",
       error
@@ -81,11 +91,12 @@ module.exports.sendOTP = async (req, res) => {
 // Endpoint for user registration (sign-up)
 // Expect{ Email, password }
 exports.register = async (req, res) => {
-  const transaction = await sequelize.transaction(); // Await the transaction creation
+  let transaction = null ;
   const { email, password, otp, mobile, name } = req.body; // Extract data from request body
   try {
+    transaction =  await sequelize.transaction(); // Await the transaction creation
     const hashedPassword = await hashPassword(password); // Hash the provided password
-
+    // throw new Error('Error Testing')
     const userOtp = await UserSecret.findOne({
       where: {
         email: email,
@@ -118,8 +129,10 @@ exports.register = async (req, res) => {
 
     return sendSuccessResponse(res); // Message : Success
   } catch (error) {
+    if(transaction){
+      transaction.rollback()
+    }
     console.error("Error happened while creating a new user:", error);
-    await transaction.rollback();
     return sendErrorResponse(res, 500); // Message : Server Error
   }
 };
