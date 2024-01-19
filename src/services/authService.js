@@ -22,9 +22,7 @@ const {
 // Expect{ Email, password}
 // Endpoint for user login
 module.exports.login = async (req, res) => {
-  try{
-
-    
+  try{    
     const { email, password } = req.body; // Extract email and password from request body
     const user = await User.findOne({
       where: {
@@ -56,7 +54,7 @@ module.exports.sendOTP = async (req, res) => {
   // Endpoint to send OTP to a given email
   let transaction = null
   try {
-    await sequelize.transaction();
+    transaction = await sequelize.transaction();
     const { email } = req.body; // Extract email from request body
     const user = await User.findOne({
       where: {
