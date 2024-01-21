@@ -1,18 +1,18 @@
-# File: `userAuthenticationMiddleware.js`
+# File: userAuthenticationMiddleware.js
 
 ## Purpose
 This file contains middleware functions used for request validation and authentication in an Express application related to user authentication.
 
 ## Dependencies
 - **Response Handling**:
-  - `sendBadRequestResponse`: Handles bad request responses.
-  - `sendUnAuthorized`: Handles unauthorized responses.
+  - sendBadRequestResponse: Handles bad request responses.
+  - sendUnAuthorized: Handles unauthorized responses.
 - **JWT Utilities**:
-  - `isValidToken`: Validates JWT tokens.
+  - isValidToken: Validates JWT tokens.
 
 ## Middleware Functions
 
-### `validateOTPRequest(req, res, next)`
+### validateOTPRequest(req, res, next)
 - **Purpose**: Validates the request for OTP validation endpoint.
 - **Expectation**: Expects 'email' and 'otp' in the request body.
 - **Steps**:
