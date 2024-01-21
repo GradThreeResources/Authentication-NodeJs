@@ -7,10 +7,11 @@ const { isValidToken } = require("../utils/jwtUtil"); // Importing token validat
 // Middleware to validate the request for OTP validation endpoint
 // Expects 'email' request body
 module.exports.validateOTPRequest = (req, res, next) => {
-  const { email } = req.body;
-  console.log('Body----------------------->: ', req.body)
-  console.log('Email---------------------->: ' , email)
-  console.log('Request Headers---------------------->: ' , req.headers)
+  const { email } = req.body;  
+  console.log('LOGGING.... Request Data -> Body: ', req.body, 
+  'Request Content-Type: ' , req.headers['content-type'], ' - Request Agent: ', req.headers['user-agent'] )
+
+
   if (!email) {
     // If 'email' is missing, send a Bad Request response
     return sendBadRequestResponse(res);

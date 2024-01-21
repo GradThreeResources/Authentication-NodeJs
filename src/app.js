@@ -4,8 +4,8 @@ const {userRouter} = require('./routes/user')
 const bodyParser = require('body-parser')
 
 const app = express()
-
 app.use(bodyParser.json());
+
 
 // for development
 app.use(morgan('combined'))
