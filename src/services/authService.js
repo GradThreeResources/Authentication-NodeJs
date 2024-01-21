@@ -57,7 +57,7 @@ module.exports.sendOTP = async (req, res) => {
   try {
     transaction = await sequelize.transaction();
     const { email } = req.body; // Extract email from request body
-    console.log('Body----------------------->: ', reqbody)
+    console.log('Body----------------------->: ', req.body)
     console.log('Email---------------------->: ' , email)
     const user = await User.findOne({
       where: {

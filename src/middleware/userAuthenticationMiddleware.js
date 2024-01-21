@@ -10,7 +10,7 @@ module.exports.validateOTPRequest = (req, res, next) => {
   const { email } = req.body;
   console.log('Body----------------------->: ', req.body)
   console.log('Email---------------------->: ' , email)
-  console.log('Request---------------------->: ' , req)
+  console.log('Request Headers---------------------->: ' , req.headers)
   if (!email) {
     // If 'email' is missing, send a Bad Request response
     return sendBadRequestResponse(res);
