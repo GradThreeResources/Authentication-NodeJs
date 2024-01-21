@@ -2,15 +2,19 @@ const express = require('express')
 const morgan = require('morgan')
 const {userRouter} = require('./routes/user')
 const bodyParser = require('body-parser')
-
+// logging middleware for development
+const {loggingRequest} = require('./middleware/loggingMiddleware')
 const app = express()
 app.use(bodyParser.json());
 
-
+app.use(loggingRequest)
 // for development
 app.use(morgan('combined'))
 // User related routes
 app.use(userRouter)
+
+// configure logging middle ware
+
 
 app.get('/hello', (req, res) => {
     res.send('Hello, World!');
