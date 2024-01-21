@@ -51,11 +51,14 @@ module.exports.login = async (req, res) => {
 
 // Expect{ Email}
 module.exports.sendOTP = async (req, res) => {
+  
   // Endpoint to send OTP to a given email
   let transaction = null
   try {
     transaction = await sequelize.transaction();
     const { email } = req.body; // Extract email from request body
+    console.log('Body----------------------->: ', reqbody)
+    console.log('Email---------------------->: ' , email)
     const user = await User.findOne({
       where: {
         email: email,
