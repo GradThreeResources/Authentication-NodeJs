@@ -8,10 +8,6 @@ const { isValidToken } = require("../utils/jwtUtil"); // Importing token validat
 // Expects 'email' request body
 module.exports.validateOTPRequest = (req, res, next) => {
   const { email } = req.body;  
-  console.log('LOGGING.... Request Data -> Body: ', req.body, 
-  'Request Content-Type: ' , req.headers['content-type'], ' - Request Agent: ', req.headers['user-agent'] )
-
-
   if (!email) {
     // If 'email' is missing, send a Bad Request response
     return sendBadRequestResponse(res);

@@ -5,7 +5,10 @@ const bodyParser = require('body-parser')
 // logging middleware for development
 const {loggingRequest} = require('./middleware/loggingMiddleware')
 const app = express()
+
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 app.use(loggingRequest)
 // for development
